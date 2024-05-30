@@ -41,7 +41,7 @@ namespace StoreInventoryApp
             string username = Console.ReadLine();
 
             // Send email
-            SendMail("harinduadhikari@gmail.com", GenerateEmailBody(username), "Test Mail");
+            SendMail("#####", GenerateEmailBody(username), "Test Mail");
 
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
@@ -268,13 +268,13 @@ namespace StoreInventoryApp
             {
                 using (MailMessage mailMessage = new MailMessage())
                 {
-                    mailMessage.From = new MailAddress("support@compulin.com");
+                    mailMessage.From = new MailAddress("##");
                     mailMessage.Subject = subject;
                     mailMessage.Body = mailBody;
                     mailMessage.IsBodyHtml = true;
                     mailMessage.To.Add(new MailAddress(recipient));
 
-                    using (SmtpClient smtp = new SmtpClient("smtp.sendgrid.net", 587))
+                    using (SmtpClient smtp = new SmtpClient("#", ))
                     {
                         smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                         smtp.UseDefaultCredentials = false;
@@ -282,7 +282,7 @@ namespace StoreInventoryApp
 
                         Console.WriteLine("smtp.Send...");
 
-                        smtp.Credentials = new System.Net.NetworkCredential("apikey", "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");
+                        smtp.Credentials = new System.Net.NetworkCredential("#");
                         smtp.Send(mailMessage);
                     }
                 }
